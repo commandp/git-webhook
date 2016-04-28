@@ -1,6 +1,8 @@
 # Git Webhook Service
 
-這基本上是拿來當中國的跳版用的，只要在 Repository 有設定 webhook 到這邊的話，當發生 commit 的話，就會發到 Git Webhook Service 去，只會更新 Git Repository，也就是跑 `git remote update --prune` 也可以設定跑完前面那個指令後，再去對其他的 URL 做請求。
+這基本上是拿來當中國的跳版用的，因為 Github 在中國速度有點差，所以預先處理在這邊。
+
+所以只要在 Repository 有設定 webhook 到這邊的話，當發生 commit 的話，就會發到 Git Webhook Service 去，只會更新 Git Repository，也就是跑 `git remote update --prune` 也可以設定跑完前面那個指令後，再去對其他的 URL 做請求。
 
 
 #### 使用方式
