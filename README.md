@@ -41,10 +41,36 @@ go get github.com/adnanh/webhook
 ```
 
 
-##### 安裝 git-webhook
+##### 下載 git-webhook
 
 ```
-(暫時沒有)
+sudo su git
+cd ~/
+git clone https://github.com/commandp/git-webhook.git webhook
+```
+
+##### 設定 config.yml
+
+建立 `config.yml`，按照你的 repository 新增。
+
+```yaml
+---
+<REPOSITORY NAME 1>:
+  owner: "<OWNER>"
+  secret: "<SECRET KEY>"
+  ci_endpoins:
+    master:  "http://<CI SERVER:8080/job/<JOB>/build"
+<REPOSITORY NAME 2>:
+  owner: "<OWNER>"
+  secret: "<SECRET KEY>"
+  ci_endpoins:
+```
+
+##### 產生 hook.json
+這個檔案是 webhook 才能夠驗證的 json 檔
+
+```
+./gen_hooks_json.rb
 ```
 
 ##### 設定 init
@@ -64,22 +90,7 @@ script
 end script
 ```
 
-##### 設定 config.yml
 
-建立 config.yml，按照你的 repository 新增。
-
-```yaml
----
-<REPOSITORY NAME 1>:
-  owner: "<OWNER>"
-  secret: "<SECRET KEY>"
-  ci_endpoins:
-    master:  "http://<CI SERVER:8080/job/<JOB>/build"
-<REPOSITORY NAME 2>:
-  owner: "<OWNER>"
-  secret: "<SECRET KEY>"
-  ci_endpoins:
-```
 ##### 在 GitHub 新增 Webhook
 
 - 在 GitHub Repository 新增 webhook ： http://<YOU SERVICE IP>:9000/hooks/<REPOSITORY NAME>
