@@ -20,6 +20,20 @@ sudo su git
 vi /home/git/.ssh/authorized_keys # 貼上從 Deploy api Server 的 Public Key
 ```
 
+##### 建立 SSH Key
+
+```
+sudo su git
+ssh-keygen -t rsa -b 4096 
+cat ~/.ssh/id_rsa.pub
+```
+
+##### 把 SSH Key 加入 Github
+
+如果只有一個 Repository 要處理的話，可以加到 Deploy Key 就行了
+
+但是如果你是要同時處理多個 Repository 的話，那就要建立一個使用者來，只開放讀取權限。
+
 ##### 安裝 Golang
 
 ```
